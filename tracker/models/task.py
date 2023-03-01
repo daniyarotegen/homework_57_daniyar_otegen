@@ -10,8 +10,8 @@ class Task(models.Model):
     )
     description = models.TextField(
         max_length=3000,
-        null=False,
-        blank=False,
+        null=True,
+        blank=True,
         verbose_name='Description'
     )
     status = models.ForeignKey(
@@ -23,10 +23,7 @@ class Task(models.Model):
     )
     type = models.ManyToManyField(
         to='tracker.Type',
-        related_name='tasks',
-        null=True,
-        blank=True,
-        on_delete=models.RESTRICT
+        related_name='tasks'
     )
     created_at = models.DateTimeField(
         auto_now_add=True,
@@ -39,3 +36,6 @@ class Task(models.Model):
 
     def __str__(self):
         return self.summary
+
+    class Meta:
+        app_label = 'tracker'
