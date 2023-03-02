@@ -1,0 +1,13 @@
+{% extends 'partial/base.html' %}
+{% block title %}
+    Home
+{% endblock %}
+{% block menu %}
+    <a href="{% url 'issue_add' %}">Add Issue</a>
+{% endblock %}
+{% block content %}
+<h1>My Blog</h1>
+    {% for issue in issues %}
+        <h2>{{ issue.summary }} - {{ issue.status }}</h2>
+    {% endfor %}
+{% endblock %}

@@ -1,11 +1,4 @@
-from django.db.models import TextChoices
 from django.db import models
-
-
-class StatusChoice(TextChoices):
-    NEW = 'NEW', 'New'
-    IN_PROGRESS = 'IN_PROGRESS', 'In progress'
-    DONE = 'DONE', 'Done'
 
 
 class Status(models.Model):

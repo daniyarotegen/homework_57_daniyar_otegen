@@ -1,11 +1,4 @@
-from django.db.models import TextChoices
 from django.db import models
-
-
-class TypeChoice(TextChoices):
-    TASK = 'TASK', 'Task'
-    BUG = 'BUG', 'Bug'
-    ENHANCEMENT = 'ENHANCEMENT', 'Enhancement'
 
 
 class Type(models.Model):

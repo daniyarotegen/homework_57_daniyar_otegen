@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Task(models.Model):
+class Issue(models.Model):
     summary = models.CharField(
         max_length=200,
         null=False,
@@ -16,14 +16,15 @@ class Task(models.Model):
     )
     status = models.ForeignKey(
         to='tracker.Status',
-        related_name='tasks',
+        related_name='issues',
         null=False,
         blank=False,
         on_delete=models.RESTRICT
     )
     type = models.ManyToManyField(
         to='tracker.Type',
-        related_name='tasks'
+        related_name='issues',
+        blank=True
     )
     created_at = models.DateTimeField(
         auto_now_add=True,
