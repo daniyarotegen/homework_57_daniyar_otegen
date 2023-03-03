@@ -1,0 +1,29 @@
+{% extends 'partial/base.html' %}
+{% block title %}
+Issue
+{% endblock %}
+{% block menu %}
+<a href="{% url 'issue_update' issue.pk %}">Edit</a>
+<a href="{% url 'issue_delete' issue.pk %}">Delete</a>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Issue</h1>
+    <p>Title: {{ issue.summary }}</p>
+    <p>Description: {{ issue.description }}</p>
+    <p>Status: {{ issue.status }}</p>
+    <p>Type:
+    {% if types %}
+        {% for type in types %}
+            {{ type.name }}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    {% else %}
+        None
+    {% endif %}
+    </p>
+    <p>Created at: {{ issue.created_at }}</p>
+    <p>Updated at: {{ issue.created_at }}</p>
+</div>
+
+{% endblock %}
+

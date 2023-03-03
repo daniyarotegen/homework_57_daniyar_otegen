@@ -1,0 +1,17 @@
+{% extends 'partial/base.html' %}
+{% block title %}
+    Delete Issue
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <h2 style="margin-top: 1rem">Delete entry for {{ issue.summary }}?</h2>
+            <p>Are you sure you want to delete this issue?</p>
+            <form action="{% url 'issue_delete' issue.pk %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <a href="{% url 'index' %}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}
